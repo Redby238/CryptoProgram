@@ -1,0 +1,43 @@
+﻿<Window x:Class="CryptoDesktop.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Crypto Desktop" Height="500" Width="900">
+    <Window.Resources>
+        <!--<ResourceDictionary> <ResourceDictionary.MergedDictionaries> <ResourceDictionary Source="Themes.xaml"/> </ResourceDictionary.MergedDictionaries> </ResourceDictionary>-->
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+               Text="Crypto Desktop" 
+               FontSize="24" FontWeight="Bold" 
+               VerticalAlignment="Center" Margin="0,0,0,10"/>
+
+
+
+        <ListView x:Name="CryptoListView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,10,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding rank}" Width="50"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding name}" Width="150"/>
+                    <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding symbol}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,0">
+            <TextBox x:Name="SearchTextBox" Width="150" Margin="5"/>
+            <Button x:Name="SearchButton" Content="Search" Width="75" Margin="5" Click="SearchButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,10,0,0">
+            <Button x:Name="CurrencyConverterButton" Click="CurrencyConverterButton_Click" Content="Convert Currency" Width="125" Margin="5"/>
+            <Button x:Name="CurrenciesButton" Click="CurrenciesButton_Click" Content="To all currencies" Width="125" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
