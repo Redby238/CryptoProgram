@@ -24,6 +24,7 @@
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding name}" Width="150"/>
                         <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding symbol}" Width="100"/>
                         <GridViewColumn Header="Price (USD)" DisplayMemberBinding="{Binding priceUsd}" Width="100"/>
+                        <GridViewColumn Header="Volume" DisplayMemberBinding="{Binding volumeUsd24Hr}" Width="150"/>
                     </GridView>
                 </ListView.View>
             </ListView>

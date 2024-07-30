@@ -7,8 +7,6 @@ using Newtonsoft.Json;
 
 namespace CryptoCurrency
 {
-    // почему-то выдаёт 8 ошибок но программа запускаеться и работает,проверялась дебаггером(возможно у меня забагался вижуал студио)
-    // ошибки фальш т.к все неймы есть в XAML и он подсоединен (<Window x:Class="CryptoDesktop.MainWindow")
     public partial class CryptoCurrencies : Window
     {
         private List<CryptoData> cryptoDataList;
@@ -42,10 +40,6 @@ namespace CryptoCurrency
                             }
                         }
 
-                        //if (cryptoDataList.Count > 0)
-                        //{
-                        //    MessageBox.Show($"Loaded {cryptoDataList.Count} items");
-                        //}
                         CryptoListView.ItemsSource = cryptoDataList;
                         MarketsListView.ItemsSource = cryptoDataList;
                     }
@@ -67,9 +61,6 @@ namespace CryptoCurrency
             {
                 MessageBox.Show("Error: An unexpected error occurred. " + ex.Message);
             }
-           
-
-
         }
 
         private async Task<string> GetJsonDataAsync(string url)
@@ -90,25 +81,6 @@ namespace CryptoCurrency
             return null;
         }
 
-        //private void SwitchTheme(string themeName)
-        //{
-        //    var themeStyle = (Style)Resources[themeName];
-        //    foreach (var control in LayoutRoot.Children)
-        //    {
-        //        if (control is FrameworkElement frameworkElement)
-        //        {
-        //            frameworkElement.Style = themeStyle;
-        //        }
-        //    }
-        //} нерабочий метод крашит(слишком много времени потратил,к сожалению сдался)
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        ////{
-        ////    SwitchTheme("DarkTheme");
-        ////}
-
-
-
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             string searchText = SearchTextBox.Text.Trim();
@@ -124,10 +96,7 @@ namespace CryptoCurrency
                 MarketsListView.ItemsSource = filteredData;
             }
         }
-
     }
-
-
 
     public class RootObject
     {
@@ -140,7 +109,8 @@ namespace CryptoCurrency
         public string name { get; set; }
         public string symbol { get; set; }
         public string rank { get; set; }
-        public string priceUsd { get; set; }
+        public decimal priceUsd { get; set; }
+        public decimal volumeUsd24Hr { get; set; } 
         public List<MarketData> markets { get; set; }
     }
 
