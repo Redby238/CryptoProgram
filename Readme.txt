@@ -8,4 +8,5 @@ From technologies was used
 WPF
 C#
 Newtonsoft.Json
+HttpClient
 
